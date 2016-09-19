@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE5189F61D8E734100631DDE /* LoadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5189F51D8E734100631DDE /* LoadProgressView.m */; };
+		FE5189FA1D8E9FFB00631DDE /* ColorProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5189F91D8E9FFB00631DDE /* ColorProgressView.m */; };
 		FEB419F51D87CB7800848D87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB419F41D87CB7800848D87 /* main.m */; };
 		FEB419F81D87CB7800848D87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB419F71D87CB7800848D87 /* AppDelegate.m */; };
 		FEB419FB1D87CB7800848D87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB419FA1D87CB7800848D87 /* ViewController.m */; };
@@ -15,6 +17,8 @@
 		FEB41A031D87CB7800848D87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB41A011D87CB7800848D87 /* LaunchScreen.storyboard */; };
 		FEB41A0E1D87CB7800848D87 /* ProgressViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A0D1D87CB7800848D87 /* ProgressViewTests.m */; };
 		FEB41A191D87CB7800848D87 /* ProgressViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A181D87CB7800848D87 /* ProgressViewUITests.m */; };
+		FEB41A2A1D87CE2E00848D87 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A291D87CE2E00848D87 /* CircleProgressView.m */; };
+		FEB41A2D1D87CE4800848D87 /* WaveProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A2C1D87CE4800848D87 /* WaveProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE5189F41D8E734100631DDE /* LoadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgressView.h; sourceTree = "<group>"; };
+		FE5189F51D8E734100631DDE /* LoadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgressView.m; sourceTree = "<group>"; };
+		FE5189F81D8E9FFB00631DDE /* ColorProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorProgressView.h; sourceTree = "<group>"; };
+		FE5189F91D8E9FFB00631DDE /* ColorProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorProgressView.m; sourceTree = "<group>"; };
 		FEB419F01D87CB7800848D87 /* ProgressView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgressView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB419F41D87CB7800848D87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FEB419F61D87CB7800848D87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 		FEB41A141D87CB7800848D87 /* ProgressViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProgressViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB41A181D87CB7800848D87 /* ProgressViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressViewUITests.m; sourceTree = "<group>"; };
 		FEB41A1A1D87CB7800848D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEB41A281D87CE2E00848D87 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
+		FEB41A291D87CE2E00848D87 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
+		FEB41A2B1D87CE4800848D87 /* WaveProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveProgressView.h; sourceTree = "<group>"; };
+		FEB41A2C1D87CE4800848D87 /* WaveProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +90,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE5189F31D8E732C00631DDE /* LoadProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				FE5189F41D8E734100631DDE /* LoadProgressView.h */,
+				FE5189F51D8E734100631DDE /* LoadProgressView.m */,
+			);
+			path = LoadProgressView;
+			sourceTree = "<group>";
+		};
+		FE5189F71D8E9FE400631DDE /* ColorProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				FE5189F81D8E9FFB00631DDE /* ColorProgressView.h */,
+				FE5189F91D8E9FFB00631DDE /* ColorProgressView.m */,
+			);
+			path = ColorProgressView;
+			sourceTree = "<group>";
+		};
 		FEB419E71D87CB7800848D87 = {
 			isa = PBXGroup;
 			children = (
+				FE5189F71D8E9FE400631DDE /* ColorProgressView */,
+				FE5189F31D8E732C00631DDE /* LoadProgressView */,
+				FEB41A261D87CD2000848D87 /* CircleProgressView */,
+				FEB41A271D87CD2000848D87 /* WaveProgressView */,
 				FEB419F21D87CB7800848D87 /* ProgressView */,
 				FEB41A0C1D87CB7800848D87 /* ProgressViewTests */,
 				FEB41A171D87CB7800848D87 /* ProgressViewUITests */,
@@ -138,6 +172,24 @@
 				FEB41A1A1D87CB7800848D87 /* Info.plist */,
 			);
 			path = ProgressViewUITests;
+			sourceTree = "<group>";
+		};
+		FEB41A261D87CD2000848D87 /* CircleProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				FEB41A281D87CE2E00848D87 /* CircleProgressView.h */,
+				FEB41A291D87CE2E00848D87 /* CircleProgressView.m */,
+			);
+			path = CircleProgressView;
+			sourceTree = "<group>";
+		};
+		FEB41A271D87CD2000848D87 /* WaveProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				FEB41A2B1D87CE4800848D87 /* WaveProgressView.h */,
+				FEB41A2C1D87CE4800848D87 /* WaveProgressView.m */,
+			);
+			path = WaveProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +326,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB419FB1D87CB7800848D87 /* ViewController.m in Sources */,
+				FEB41A2A1D87CE2E00848D87 /* CircleProgressView.m in Sources */,
+				FE5189FA1D8E9FFB00631DDE /* ColorProgressView.m in Sources */,
+				FEB41A2D1D87CE4800848D87 /* WaveProgressView.m in Sources */,
 				FEB419F81D87CB7800848D87 /* AppDelegate.m in Sources */,
 				FEB419F51D87CB7800848D87 /* main.m in Sources */,
+				FE5189F61D8E734100631DDE /* LoadProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaoName.ProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d8189b57-bbd6-4529-b2be-e5fabe042aa1";
 			};
 			name = Debug;
 		};
@@ -431,6 +488,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaoName.ProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d8189b57-bbd6-4529-b2be-e5fabe042aa1";
 			};
 			name = Release;
 		};
@@ -499,6 +557,7 @@
 				FEB41A1F1D87CB7800848D87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEB41A201D87CB7800848D87 /* Build configuration list for PBXNativeTarget "ProgressViewTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +566,7 @@
 				FEB41A221D87CB7800848D87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEB41A231D87CB7800848D87 /* Build configuration list for PBXNativeTarget "ProgressViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +575,7 @@
 				FEB41A251D87CB7800848D87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
