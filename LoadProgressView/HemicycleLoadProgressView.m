@@ -78,13 +78,7 @@
 - (void)setupLoadProgress
 {
     [self.layer removeAllAnimations];
-    
-    // 画弧度 YES逆时针 NO顺时针
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(LOAD_WIDTH/2, LOAD_HEIGHT/2) radius:(LOAD_WIDTH - self.progressWidth)/2.0 startAngle:-M_PI_4 endAngle:M_PI_4 clockwise:self.clockwise];
-    [self.progressColor setStroke];
-    path.lineWidth = self.progressWidth;
-    [path stroke];
-    
+    // 添加动画效果
     CABasicAnimation *rotationAn = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotationAn.duration = self.animationDuration;
     rotationAn.fromValue = @0.0;
@@ -93,6 +87,8 @@
     rotationAn.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     [self.layer addAnimation:rotationAn forKey:@"rotation"];
     
+    // 画弧度 YES逆时针 NO顺时针
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(LOAD_WIDTH/2, LOAD_HEIGHT/2) radius:(LOAD_WIDTH - self.progressWidth)/2.0 startAngle:-M_PI_4 endAngle:M_PI_4 clockwise:self.clockwise];
     self.shapeLayer.path = path.CGPath;
     [self.layer addSublayer:self.shapeLayer];
 }
