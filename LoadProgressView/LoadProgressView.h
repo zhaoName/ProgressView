@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSArray *progressColors; /**< 进度条颜色*/
 
 /**
- *  添加通知 当程序重新进入前台或活跃状态，动画仍然会直行
+ *  添加通知 当程序重新进入前台或活跃状态，动画仍然会执行
  */
 - (void)addNotificationObserver;
 

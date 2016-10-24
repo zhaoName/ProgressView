@@ -57,7 +57,7 @@
     self.progressBackgroundColor = RGBA(223, 223, 248, 1);
     self.percent = 0.0;
     
-    //实际画出的波纹是矩形，设置超出圆形部分减掉，所以显示波纹的形状是圆形
+    // 实际画出的波纹是矩形，设置超出圆形部分减掉，所以显示波纹的形状是圆形
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = MIN(WIDTH/2, HEIGHT/2);
     self.layer.borderWidth = self.progressWidth;
@@ -83,7 +83,7 @@
     self.centerLabel.backgroundColor = self.labelbackgroundColor;
     self.centerLabel.textColor = self.textColor;
     self.centerLabel.font = self.textFont;
-    //注意顺序
+    // 注意顺序
     [self.layer addSublayer:self.firstShapeLayer];
     [self.layer addSublayer:self.secondShapeLayer];
     [self addSubview:self.centerLabel];
@@ -115,26 +115,26 @@
  */
 - (void)drawProgress:(CADisplayLink *)link
 {
-    if(!self.isShowWave){ //没有波纹的进度条
+    if(!self.isShowWave){ // 没有波纹的进度条
         [self showNoWaveProgress];
         return;
     }
     
     self.offsetX += self.waveSpeed;
-    //第一条波纹
+    // 第一条波纹
     CGMutablePathRef path = CGPathCreateMutable();
     CGFloat y =  HEIGHT - self.progressWidth - self.percent * (HEIGHT - self.progressWidth*2);
     CGPathMoveToPoint(path, nil, 0, y);
     for (float x = 0.0f; x <= WIDTH ; x++)
     {
-        if(self.percent > 1){//>1则不需要波纹
+        if(self.percent > 1){// >1则不需要波纹
             CGPathAddLineToPoint(path, nil, WIDTH, y);
             break;
         }
         // 正弦波浪公式 坐标转换将x装换为对应的弧度值:(self.waveCycle * x / WIDTH) * M_PI*2; 平移:self.offsetX
         y = self.waveAmplitude * sin((self.waveCycle * x / WIDTH) * M_PI*2 + self.offsetX) + y;
         CGPathAddLineToPoint(path, nil, x, y);
-        //每次重置y值 不要累加
+        // 每次重置y值 不要累加
         y =  HEIGHT - self.progressWidth - self.percent * (HEIGHT - self.progressWidth*2);
     }
       
@@ -145,19 +145,19 @@
     self.firstShapeLayer.path = path;
     CGPathRelease(path);
     
-    //第二条波纹
+    // 第二条波纹
     CGMutablePathRef secondPath = CGPathCreateMutable();
     CGPathMoveToPoint(secondPath, nil, 0, y);
     for (float x = 0.0f; x <= WIDTH ; x++)
     {
-        if(self.percent > 1){//>1则不需要波纹
+        if(self.percent > 1){// >1则不需要波纹
             CGPathAddLineToPoint(secondPath, nil, WIDTH, y);
             break;
         }
         // 余弦波浪公式
         y = self.waveAmplitude * cos((self.waveCycle * x / WIDTH) * M_PI*2 + self.offsetX) + y;
         CGPathAddLineToPoint(secondPath, nil, x, y);
-        //每次重置y值 不要累加
+        // 每次重置y值 不要累加
         y =  HEIGHT - self.progressWidth - self.percent * (HEIGHT - self.progressWidth*2);
     }
     
@@ -174,7 +174,7 @@
  */
 - (void)showNoWaveProgress
 {
-    //第一条波纹
+    // 第一条波纹
     CGMutablePathRef path = CGPathCreateMutable();
     CGFloat y =  HEIGHT - self.percent * (HEIGHT - self.progressWidth*2) - self.progressWidth;;
     CGPathMoveToPoint(path, nil, 0, y);

@@ -68,26 +68,26 @@
  */
 - (void)setupMultipleColor
 {
-    //上半部分
+    // 上半部分
     CAGradientLayer *upLayer = [CAGradientLayer layer];
     upLayer.frame = CGRectMake(0, 0, COLOR_WIDTH, COLOR_HEIGHT/2);
-    //颜色渐变方向
+    // 颜色渐变方向
     upLayer.startPoint = CGPointMake(0, 0.5);
     upLayer.endPoint = CGPointMake(1, 0.5);
-    //颜色
+    // 颜色
     upLayer.colors = self.upColors;
     [self.layer addSublayer:upLayer];
     
-    //下半部分
+    // 下半部分
     CAGradientLayer *downLayer = [CAGradientLayer layer];
     downLayer.frame = CGRectMake(0, COLOR_HEIGHT/2, COLOR_WIDTH, COLOR_HEIGHT/2);
-    //颜色渐变方向
+    // 颜色渐变方向
     downLayer.startPoint = CGPointMake(0, 0.5);
     downLayer.endPoint = CGPointMake(1, 0.5);
     downLayer.colors = self.downColors;
     [self.layer addSublayer:downLayer];
     
-    //中心圆 白色
+    // 中心圆 白色
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(COLOR_WIDTH/2, COLOR_HEIGHT/2) radius:(COLOR_WIDTH-self.progressWidth*2)/2 startAngle:0 endAngle:M_PI*2 clockwise:0];
     
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
@@ -100,35 +100,35 @@
 
 #pragma mark -- 转换坐标
 
-//这里要注意 有时拖拽按钮不在圆上，但是只要算出拖拽点与圆心的连线和水平方向的夹角的余弦值，再乘上半径，就是我们想要的值
+// 这里要注意 有时拖拽按钮不在圆上，但是只要算出拖拽点与圆心的连线和水平方向的夹角的余弦值，再乘上半径，就是我们想要的值
 - (CGPoint)getColorBtnCenterWithDragBtnPoint:(CGPoint)btnPoint centerOfCircle:(CGPoint)centerOfCircle
 {
     CGFloat radius = (COLOR_WIDTH - self.progressWidth)/2; //半径
     
-    //拖拽点(实际)坐标到圆心的距离的平方 勾股定理
+    // 拖拽点(实际)坐标到圆心的距离的平方 勾股定理
     CGFloat squareDis = (centerOfCircle.x - btnPoint.x)*(centerOfCircle.x - btnPoint.x) + (centerOfCircle.y -btnPoint.y)*(centerOfCircle.y -btnPoint.y);
-    //拖拽点坐标到圆心的距离
+    // 拖拽点坐标到圆心的距离
     CGFloat distance = fabs(sqrt(squareDis));
     
-    //拖拽点与圆心的连线 与水平方向夹角的余弦值
+    // 拖拽点与圆心的连线 与水平方向夹角的余弦值
     CGFloat cosX = fabs(centerOfCircle.x - btnPoint.x)/distance;
     
-    //拖拽点(虚拟)在圆上到圆心的X值, y值
+    // 拖拽点(虚拟)在圆上到圆心的X值, y值
     CGFloat centerX = cosX * radius;
     CGFloat centerY = sqrt(radius*radius - centerX*centerX);
     
-    //算出在父视图上的实际X值、Y值
-    if(btnPoint.x > centerOfCircle.x){ //拖拽点在圆心右边
+    // 算出在父视图上的实际X值、Y值
+    if(btnPoint.x > centerOfCircle.x){ // 拖拽点在圆心右边
         centerX = centerOfCircle.x + centerX;
     }
-    else{ //拖拽点在圆心左边
+    else{ // 拖拽点在圆心左边
         centerX = centerOfCircle.x - centerX;
     }
     
-    if(btnPoint.y > centerOfCircle.y) { //拖拽点在圆心下边
+    if(btnPoint.y > centerOfCircle.y) { // 拖拽点在圆心下边
         centerY = centerOfCircle.y + centerY;
     }
-    else{//拖拽点在圆心上边
+    else{// 拖拽点在圆心上边
         centerY = centerOfCircle.y - centerY;
     }
     return CGPointMake(centerX, centerY);

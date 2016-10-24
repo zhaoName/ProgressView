@@ -11,6 +11,7 @@
 #import "WaveProgressView.h"
 #import "LoadProgressView.h"
 #import "ColorProgressView.h"
+#import "HemicycleLoadProgressView.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) WaveProgressView *waveProgress;
 
 @property (nonatomic, strong) LoadProgressView *loadProgress;
+@property (nonatomic, strong) HemicycleLoadProgressView *cycleLoadProgress;
 
 @property (nonatomic, strong) ColorProgressView *colorProgress;
 
@@ -43,6 +45,9 @@
     
     [self.view addSubview:self.colorProgress];
     [self createColorButton];
+    
+    [self.view addSubview:self.cycleLoadProgress];
+    [self.cycleLoadProgress addNotificationObserver];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(progressTimer:) userInfo:nil repeats:YES];
 }
@@ -146,6 +151,15 @@
         _loadProgress.progressColors = @[[UIColor redColor], [UIColor blueColor], [UIColor orangeColor], [UIColor greenColor]];
     }
     return _loadProgress;
+}
+
+- (HemicycleLoadProgressView *)cycleLoadProgress
+{
+    if(!_cycleLoadProgress)
+    {
+        _cycleLoadProgress = [[HemicycleLoadProgressView alloc] initWithFrame:CGRectMake(50, 400, 50, 50)];
+    }
+    return _cycleLoadProgress;
 }
 
 - (ColorProgressView *)colorProgress

@@ -69,7 +69,7 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetShouldAntialias(context, YES);
+    CGContextSetShouldAntialias(context, YES); // 平滑
     CGContextAddArc(context, WIDTH/2, HEIGHT/2, (WIDTH-self.progressWidth)/2, 0, M_PI*2, 0);
     [self.progressBackgroundColor setStroke];
     CGContextSetLineWidth(context, self.progressWidth);
@@ -78,10 +78,10 @@
     if(self.percent)
     {
         CGFloat angle = 2 * self.percent * M_PI - M_PI_2;
-        if(self.clockwise) {//反方向
+        if(self.clockwise) {// 反方向
             CGContextAddArc(context, WIDTH/2, HEIGHT/2, (WIDTH-self.progressWidth)/2, ((int)self.percent == 1 ? -M_PI_2 : angle), -M_PI_2, 0);
         }
-        else {//正方向
+        else {// 正方向
             CGContextAddArc(context, WIDTH/2, HEIGHT/2, (WIDTH-self.progressWidth)/2, -M_PI_2, angle, 0);
         }
         [self.progressColor setStroke];

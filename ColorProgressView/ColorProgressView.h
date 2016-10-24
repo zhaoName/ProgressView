@@ -8,19 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ColorProgressViewDelegate <NSObject>
-
-- (void)sendColorWithSwipePoint:(UIColor *)rgb;
-
-@end
-
-
-@class ColorProgressViewDelegate;
 @interface ColorProgressView : UIView
 
-@property (nonatomic, weak) id<ColorProgressViewDelegate> delegate;
-@property (nonatomic, strong) NSArray *upColors; /**< 上半部分颜色*/
-@property (nonatomic, strong) NSArray *downColors; /**< 下半部分颜色*/
+@property (nonatomic, strong) NSArray *upColors; /**< 上半部分颜色 CGColor*/
+@property (nonatomic, strong) NSArray *downColors; /**< 下半部分颜色 CGColor*/
 @property (nonatomic, assign) CGFloat progressWidth; /**< 进度条宽度 默认6.0*/
 @property (nonatomic, strong) UIColor *centerCircleColor; /**< 中间圆的背景色 默认白色*/
 

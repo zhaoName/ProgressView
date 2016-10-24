@@ -65,7 +65,7 @@
 
 - (void)setupLoadProgress
 {
-    //断言 当前面的表达式为假值时 打印后面的内容 但是程序还是会崩溃
+    // 断言 当前面的表达式为假值时 打印后面的内容 但是程序还是会崩溃
     NSAssert(self.progressWidth > 0.0, @"进度条宽度必须大于0");
     NSAssert(self.progressColors.count > 0, @"重置的颜色数组不能为空");
     
@@ -79,7 +79,7 @@
 
 - (void)addAnimation
 {
-    //旋转z轴 使每次重合的位置不同
+    // 绕z轴旋转 使每次重合的位置不同
     CABasicAnimation *rotationAni = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotationAni.fromValue = @0.0;
     rotationAni.toValue = @(2 * M_PI);
@@ -87,14 +87,14 @@
     rotationAni.repeatCount = MAXFLOAT;
     [self.layer addAnimation:rotationAni forKey:@"roration"];
     
-    //strokeEnd 正向画出路径
+    // strokeEnd 正向画出路径
     CABasicAnimation *endAni = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     endAni.fromValue = @0.0;
     endAni.toValue = @1.0;
     endAni.duration = self.animationDuration;
     endAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
-    //strokeStart 反向清除路径
+    // strokeStart 反向清除路径
     CABasicAnimation *startAni = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
     startAni.fromValue = @0.0;
     startAni.toValue = @1.0;
@@ -124,8 +124,9 @@
     self.shapeLayer.strokeColor = color;
 }
 
-#pragma mark -- 进入前台或活跃状态
+#pragma mark -- 进入前台或活跃状态 
 
+// 当程序重新进入前台或活跃状态，动画仍然会执行
 - (void)addNotificationObserver
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addAnimation) name:UIApplicationDidBecomeActiveNotification object:nil];

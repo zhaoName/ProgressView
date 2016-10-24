@@ -19,6 +19,7 @@
 		FEB41A191D87CB7800848D87 /* ProgressViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A181D87CB7800848D87 /* ProgressViewUITests.m */; };
 		FEB41A2A1D87CE2E00848D87 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A291D87CE2E00848D87 /* CircleProgressView.m */; };
 		FEB41A2D1D87CE4800848D87 /* WaveProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB41A2C1D87CE4800848D87 /* WaveProgressView.m */; };
+		FEC312F81DBD9DF30025D96C /* HemicycleLoadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC312F71DBD9DF30025D96C /* HemicycleLoadProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		FEB41A291D87CE2E00848D87 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
 		FEB41A2B1D87CE4800848D87 /* WaveProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveProgressView.h; sourceTree = "<group>"; };
 		FEB41A2C1D87CE4800848D87 /* WaveProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveProgressView.m; sourceTree = "<group>"; };
+		FEC312F61DBD9DF30025D96C /* HemicycleLoadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HemicycleLoadProgressView.h; sourceTree = "<group>"; };
+		FEC312F71DBD9DF30025D96C /* HemicycleLoadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HemicycleLoadProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 			children = (
 				FE5189F41D8E734100631DDE /* LoadProgressView.h */,
 				FE5189F51D8E734100631DDE /* LoadProgressView.m */,
+				FEC312F61DBD9DF30025D96C /* HemicycleLoadProgressView.h */,
+				FEC312F71DBD9DF30025D96C /* HemicycleLoadProgressView.m */,
 			);
 			path = LoadProgressView;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB419FB1D87CB7800848D87 /* ViewController.m in Sources */,
+				FEC312F81DBD9DF30025D96C /* HemicycleLoadProgressView.m in Sources */,
 				FEB41A2A1D87CE2E00848D87 /* CircleProgressView.m in Sources */,
 				FE5189FA1D8E9FFB00631DDE /* ColorProgressView.m in Sources */,
 				FEB41A2D1D87CE4800848D87 /* WaveProgressView.m in Sources */,
