@@ -40,6 +40,11 @@
     return self;
 }
 
+- (void)setProgressWidth:(CGFloat)progressWidth
+{
+    _progressWidth = progressWidth;
+}
+
 /** 初始化数据*/
 - (void)initData
 {

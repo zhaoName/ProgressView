@@ -90,6 +90,18 @@
     }
 }
 
+#pragma mark -- 中间label的点击事件
+
+- (void)touchCenterLabel:(UITapGestureRecognizer *)tap
+{
+    if([self.delegate respondsToSelector:@selector(theCallbackOfClickCenterLabel)])
+    {
+        [self.delegate theCallbackOfClickCenterLabel];
+    }
+}
+
+#pragma mark -- setter或getter
+
 - (void)setPercent:(float)percent
 {
     if(self.percent < 0) return;
@@ -102,9 +114,13 @@
 {
     if(!_centerLabel)
     {
-        _centerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT/2)];
+        _centerLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.progressWidth + 5, 0, WIDTH - (self.progressWidth +5) * 2, HEIGHT/2)];
         _centerLabel.center = CGPointMake(WIDTH/2, HEIGHT/2);
         _centerLabel.textAlignment = NSTextAlignmentCenter;
+        _centerLabel.userInteractionEnabled = YES;
+        _centerLabel.layer.cornerRadius = 5.0;
+        _centerLabel.clipsToBounds = YES;
+        [_centerLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCenterLabel:)]];
     }
     return _centerLabel;
 }
