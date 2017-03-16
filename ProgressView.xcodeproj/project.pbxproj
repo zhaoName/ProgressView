@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70C640E21E7AEB9900ED9727 /* AiQIYiLoadProgerssView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C640E11E7AEB9900ED9727 /* AiQIYiLoadProgerssView.m */; };
 		FE5189F61D8E734100631DDE /* LoadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5189F51D8E734100631DDE /* LoadProgressView.m */; };
 		FE5189FA1D8E9FFB00631DDE /* ColorProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5189F91D8E9FFB00631DDE /* ColorProgressView.m */; };
 		FEB419F51D87CB7800848D87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB419F41D87CB7800848D87 /* main.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70C640E01E7AEB9900ED9727 /* AiQIYiLoadProgerssView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiQIYiLoadProgerssView.h; sourceTree = "<group>"; };
+		70C640E11E7AEB9900ED9727 /* AiQIYiLoadProgerssView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiQIYiLoadProgerssView.m; sourceTree = "<group>"; };
 		FE5189F41D8E734100631DDE /* LoadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgressView.h; sourceTree = "<group>"; };
 		FE5189F51D8E734100631DDE /* LoadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgressView.m; sourceTree = "<group>"; };
 		FE5189F81D8E9FFB00631DDE /* ColorProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorProgressView.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 				FE5189F51D8E734100631DDE /* LoadProgressView.m */,
 				FEC312F61DBD9DF30025D96C /* HemicycleLoadProgressView.h */,
 				FEC312F71DBD9DF30025D96C /* HemicycleLoadProgressView.m */,
+				70C640E01E7AEB9900ED9727 /* AiQIYiLoadProgerssView.h */,
+				70C640E11E7AEB9900ED9727 /* AiQIYiLoadProgerssView.m */,
 			);
 			path = LoadProgressView;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				FEB419FB1D87CB7800848D87 /* ViewController.m in Sources */,
 				FEC312F81DBD9DF30025D96C /* HemicycleLoadProgressView.m in Sources */,
 				FEB41A2A1D87CE2E00848D87 /* CircleProgressView.m in Sources */,
+				70C640E21E7AEB9900ED9727 /* AiQIYiLoadProgerssView.m in Sources */,
 				FE5189FA1D8E9FFB00631DDE /* ColorProgressView.m in Sources */,
 				FEB41A2D1D87CE4800848D87 /* WaveProgressView.m in Sources */,
 				FEB419F81D87CB7800848D87 /* AppDelegate.m in Sources */,
