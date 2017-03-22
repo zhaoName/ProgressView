@@ -12,7 +12,6 @@
 #import "LoadProgressView.h"
 #import "ColorProgressView.h"
 #import "HemicycleLoadProgressView.h"
-#import "AiQIYiLoadProgerssView.h"
 
 @interface ViewController ()<CircleProgressViewDelegate>
 
@@ -25,7 +24,6 @@
 
 @property (nonatomic, strong) LoadProgressView *loadProgress;
 @property (nonatomic, strong) HemicycleLoadProgressView *cycleLoadProgress;
-@property (nonatomic, strong) AiQIYiLoadProgerssView *aiQiYiLoadProgress; /**< 彷爱奇艺加载进度条*/
 
 @property (nonatomic, strong) ColorProgressView *colorProgress;
 
@@ -37,6 +35,7 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.circleProgress];
+    self.anticlockwiseProgress.labelbackgroundColor = [UIColor yellowColor];
     self.anticlockwiseProgress.delegate = self;
     self.anticlockwiseProgress.centerLabel.text = @"跳过";
     [self.view addSubview:self.anticlockwiseProgress];
@@ -52,9 +51,6 @@
     
     [self.view addSubview:self.cycleLoadProgress];
     [self.cycleLoadProgress addNotificationObserver];
-    
-    [self.view addSubview:self.aiQiYiLoadProgress];
-    [self.aiQiYiLoadProgress addNotificationObserver];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(progressTimer:) userInfo:nil repeats:YES];
 }
@@ -172,15 +168,6 @@
         _cycleLoadProgress = [[HemicycleLoadProgressView alloc] initWithFrame:CGRectMake(50, 400, 50, 50)];
     }
     return _cycleLoadProgress;
-}
-
-- (AiQIYiLoadProgerssView *)aiQiYiLoadProgress
-{
-    if(!_aiQiYiLoadProgress)
-    {
-        _aiQiYiLoadProgress = [[AiQIYiLoadProgerssView alloc] initWithFrame:CGRectMake(50, 480, 50, 50)];
-    }
-    return _aiQiYiLoadProgress;
 }
 
 - (ColorProgressView *)colorProgress

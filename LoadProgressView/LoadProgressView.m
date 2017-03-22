@@ -51,7 +51,7 @@
 - (void)initData
 {
     self.animationDuration = 1.0;
-    self.progressWidth = 2.0;
+    self.progressWidth = 3.0;
     self.progressColors = @[[UIColor darkGrayColor]];
 }
 
@@ -99,7 +99,7 @@
     startAni.fromValue = @0.0;
     startAni.toValue = @1.0;
     startAni.duration = self.animationDuration;
-    startAni.beginTime = self.animationDuration;
+    startAni.beginTime = 1.0;
     startAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];

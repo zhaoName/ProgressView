@@ -4,7 +4,7 @@
 //
 //  Created by zhao on 16/10/24.
 //  Copyright © 2016年 zhaoName. All rights reserved.
-//  半圆弧型加载进度条
+//
 
 #import "HemicycleLoadProgressView.h"
 
