@@ -113,6 +113,16 @@
     colorBtn.backgroundColor = [self.colorProgress colorWithCirclePoint:center];
 }
 
+- (IBAction)startAnimation:(id)sender
+{
+    
+}
+
+- (IBAction)stopAnimation:(id)sender
+{
+    
+}
+
 #pragma mark -- getter
 
 - (CircleProgressView *)circleProgress

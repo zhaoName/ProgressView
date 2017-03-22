@@ -19,4 +19,15 @@
  */
 - (void)addNotificationObserver;
 
+
+///**
+// * 开始动画
+// */
+//- (void)startAnimation;
+//
+///**
+// * 结束动画
+// */
+//- (void)stopAnimation;
+
 @end
