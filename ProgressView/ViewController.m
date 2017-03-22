@@ -13,7 +13,7 @@
 #import "ColorProgressView.h"
 #import "HemicycleLoadProgressView.h"
 
-@interface ViewController ()<CircleProgressViewDelegate>
+@interface ViewController ()
 
 @property (nonatomic, strong) CircleProgressView *circleProgress;
 @property (nonatomic, strong) CircleProgressView *anticlockwiseProgress;
@@ -35,9 +35,6 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.circleProgress];
-    self.anticlockwiseProgress.labelbackgroundColor = [UIColor yellowColor];
-    self.anticlockwiseProgress.delegate = self;
-    self.anticlockwiseProgress.centerLabel.text = @"跳过";
     [self.view addSubview:self.anticlockwiseProgress];
     
     [self.view addSubview:self.noWaveProgress];
@@ -61,6 +58,7 @@
     self.circleProgress.centerLabel.text = [NSString stringWithFormat:@"%.02f%%", self.circleProgress.percent*100];
     
     self.anticlockwiseProgress.percent += 0.05;
+    self.anticlockwiseProgress.centerLabel.text = @"跳过";
     
     self.noWaveProgress.percent += 0.05;
     self.noWaveProgress.centerLabel.text = [NSString stringWithFormat:@"%.02f%%", self.noWaveProgress.percent*100];
@@ -72,12 +70,6 @@
     {
         [self.timer invalidate];
     }
-}
-
-#pragma mark -- CircleProgressViewDelegate
-- (void)theCallbackOfClickCenterLabel
-{
-    NSLog(@"点击了中间按钮");
 }
 
 #pragma mark -- 颜色进度条

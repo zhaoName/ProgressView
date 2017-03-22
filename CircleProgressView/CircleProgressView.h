@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol CircleProgressViewDelegate <NSObject>
-
-- (void)theCallbackOfClickCenterLabel;
-
-@end
-
 @interface CircleProgressView : UIView
 
 @property (nonatomic, strong) UIColor *progressColor; /**< 进度条颜色 默认红色*/
@@ -26,7 +20,5 @@
 @property (nonatomic, strong) UIColor *labelbackgroundColor; /**<Label的背景色 默认clearColor*/
 @property (nonatomic, strong) UIColor *textColor; /**<Label的字体颜色 默认黑色*/
 @property (nonatomic, strong) UIFont *textFont; /**<Label的字体大小 默认15*/
-
-@property (nonatomic, weak) id<CircleProgressViewDelegate> delegate; /**< 点击中间label的回调*/
 
 @end

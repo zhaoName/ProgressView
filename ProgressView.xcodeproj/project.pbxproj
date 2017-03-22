@@ -265,7 +265,6 @@
 					FEB419EF1D87CB7800848D87 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 68JDS85SLB;
-						ProvisioningStyle = Automatic;
 					};
 					FEB41A081D87CB7800848D87 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -479,12 +478,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProgressView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zhaoName.ProgressView1;
+				PRODUCT_BUNDLE_IDENTIFIER = zhaoName.ProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d8189b57-bbd6-4529-b2be-e5fabe042aa1";
 			};
 			name = Debug;
 		};
@@ -492,12 +490,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProgressView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zhaoName.ProgressView1;
+				PRODUCT_BUNDLE_IDENTIFIER = zhaoName.ProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d8189b57-bbd6-4529-b2be-e5fabe042aa1";
 			};
 			name = Release;
 		};
