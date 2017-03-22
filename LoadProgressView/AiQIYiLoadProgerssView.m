@@ -126,7 +126,6 @@
     [self.layer addSublayer:self.shapeLayer];
 }
 
-
 #pragma mark -- 进入前台或活跃状态
 
 // 当程序重新进入前台或活跃状态，动画仍然会执行
