@@ -46,6 +46,8 @@
     return self;
 }
 
+#pragma mark -- 初始化数据
+
 /** 初始化数据*/
 - (void)initData
 {
@@ -73,10 +75,10 @@
     
     // 画三角形
     UIBezierPath *trianglePath = [UIBezierPath bezierPath];
-    CGFloat triangleHeight = AIQIYI_LOAD_WIDTH / 3.0 ;
-    [trianglePath moveToPoint:CGPointMake(AIQIYI_LOAD_WIDTH * 0.5, triangleHeight - self.progressWidth)];
-    [trianglePath addLineToPoint:CGPointMake(AIQIYI_LOAD_WIDTH * 0.5 - triangleHeight / sqrt(3.0), AIQIYI_LOAD_HEIGHT / 3.0 * 2.0 - self.progressWidth)];
-    [trianglePath addLineToPoint:CGPointMake(AIQIYI_LOAD_WIDTH * 0.5 + triangleHeight / sqrt(3.0), AIQIYI_LOAD_HEIGHT / 3.0 * 2.0 - self.progressWidth)];
+    CGFloat triangleHeight = AIQIYI_LOAD_WIDTH / 3.0;
+    [trianglePath moveToPoint:CGPointMake(triangleHeight * 2 + self.progressWidth, AIQIYI_LOAD_HEIGHT * 0.5)];
+    [trianglePath addLineToPoint:CGPointMake(triangleHeight + self.progressWidth, AIQIYI_LOAD_HEIGHT * 0.5 - triangleHeight * 0.5)];
+    [trianglePath addLineToPoint:CGPointMake(triangleHeight + self.progressWidth, AIQIYI_LOAD_HEIGHT * 0.5 + triangleHeight * 0.5)];
     
     [self.progressColor setFill];
     [trianglePath fill];
