@@ -135,6 +135,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
+- (void)dealloc
+{
+     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark -- getter
 
 - (CAShapeLayer *)shapeLayer
