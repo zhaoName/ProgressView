@@ -111,9 +111,10 @@
     CGFloat radius = (COLOR_WIDTH - self.progressWidth)/2; //半径
     
     // 拖拽点(实际)坐标到圆心的距离的平方 勾股定理
-    CGFloat squareDis = (centerOfCircle.x - btnPoint.x)*(centerOfCircle.x - btnPoint.x) + (centerOfCircle.y -btnPoint.y)*(centerOfCircle.y -btnPoint.y);
+    CGFloat squareDis = (centerOfCircle.x - btnPoint.x)*(centerOfCircle.x - btnPoint.x) + (centerOfCircle.y -btnPoint.y)*(centerOfCircle.y - btnPoint.y);
     // 拖拽点坐标到圆心的距离
-    CGFloat distance = fabs(sqrt(squareDis));
+    // 注意拖拽点与圆心重合的情况 这时squareDis趋近或等于0 作为分母会crash
+    CGFloat distance = MAX(0.1, fabs(sqrt(squareDis)));
     
     // 拖拽点与圆心的连线 与水平方向夹角的余弦值
     CGFloat cosX = fabs(centerOfCircle.x - btnPoint.x)/distance;
