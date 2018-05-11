@@ -130,6 +130,7 @@
     circleLayer.path = path.CGPath;
     [self.layer addSublayer:circleLayer];
     
+    
 //    CAShapeLayer *colorLayer = [CAShapeLayer layer];
 //    colorLayer.lineWidth = self.progressWidth;
 //    colorLayer.fillColor = [UIColor clearColor];
