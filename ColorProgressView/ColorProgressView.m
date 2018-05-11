@@ -10,6 +10,12 @@
 
 #define COLOR_WIDTH self.frame.size.width
 #define COLOR_HEIGHT self.frame.size.height
+@interface ColorProgressView ()
+
+@property (nonatomic, strong) CAGradientLayer *gradientLayer; /**< 颜色渐变层*/
+
+@end
+
 
 @implementation ColorProgressView
 
@@ -52,6 +58,7 @@
         NSLog(@"宽和高不一样,裁剪出来的不是圆");
         return;
     }
+    self.backgroundColor = [UIColor whiteColor];
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = COLOR_WIDTH/2;
     
@@ -66,6 +73,27 @@
     [super layoutSubviews];
     [self setupMultipleColor];
 }
+
+// 采用dreaRect中直接画渐变颜色圆，颜色不会随着线条渐变 会对称显示
+//- (void)drawRect:(CGRect)rect
+//{
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//
+//    // 画圆
+//    CGContextAddArc(context, COLOR_WIDTH*0.5, COLOR_HEIGHT*0.5, COLOR_HEIGHT*0.5 - self.progressWidth, 0, M_PI*2, 0);
+//    CGContextSetLineCap(context, kCGLineCapRound);
+//    CGContextSetLineWidth(context, self.progressWidth);
+//
+//    // 颜色渐变器
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    CGGradientRef grandient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)self.circleColors, NULL);
+//    CGColorSpaceRelease(colorSpace);
+//
+//    CGContextReplacePathWithStrokedPath(context);
+//    CGContextClip(context);
+//    CGContextDrawLinearGradient(context, grandient, CGPointMake(0, COLOR_HEIGHT*0.5), CGPointMake(COLOR_WIDTH, COLOR_HEIGHT*0.5), kCGGradientDrawsAfterEndLocation);
+//    CGGradientRelease(grandient);
+//}
 
 
 /**
@@ -82,7 +110,7 @@
     // 颜色
     upLayer.colors = self.upColors;
     [self.layer addSublayer:upLayer];
-    
+
     // 下半部分
     CAGradientLayer *downLayer = [CAGradientLayer layer];
     downLayer.frame = CGRectMake(0, COLOR_HEIGHT/2, COLOR_WIDTH, COLOR_HEIGHT/2);
@@ -91,16 +119,25 @@
     downLayer.endPoint = CGPointMake(1, 0.5);
     downLayer.colors = self.downColors;
     [self.layer addSublayer:downLayer];
-    
+
     // 中心圆 白色
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(COLOR_WIDTH/2, COLOR_HEIGHT/2) radius:(COLOR_WIDTH-self.progressWidth*2)/2 startAngle:0 endAngle:M_PI*2 clockwise:0];
-    
+
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
     circleLayer.lineCap = kCALineCapRound;
     circleLayer.lineWidth = self.progressWidth;
     circleLayer.fillColor = self.centerCircleColor.CGColor;
     circleLayer.path = path.CGPath;
     [self.layer addSublayer:circleLayer];
+    
+//    CAShapeLayer *colorLayer = [CAShapeLayer layer];
+//    colorLayer.lineWidth = self.progressWidth;
+//    colorLayer.fillColor = [UIColor clearColor];
+//    colorLayer.strokeColor = [UIColor redColor].CGColor;
+//
+//    [self.layer addSublayer:colorLayer];
+//    colorLayer.path = path.CGPath;
+//    self.gradientLayer.mask = colorLayer;
 }
 
 #pragma mark -- 转换坐标
@@ -117,7 +154,7 @@
     CGFloat distance = MAX(0.1, fabs(sqrt(squareDis)));
     
     // 拖拽点与圆心的连线 与水平方向夹角的余弦值
-    CGFloat cosX = fabs(centerOfCircle.x - btnPoint.x)/distance;
+    CGFloat cosX = fabs(centerOfCircle.x - btnPoint.x) / distance;
     
     // 拖拽点(虚拟)在圆上到圆心的X值, y值
     CGFloat centerX = cosX * radius;
@@ -157,6 +194,26 @@
     
     //NSLog(@"%@", [UIColor colorWithRed:pixel[0]/255.0 green:pixel[1]/255.0 blue:pixel[2]/255.0 alpha:pixel[3]/255.0]);
     return [UIColor colorWithRed:pixel[0]/255.0 green:pixel[1]/255.0 blue:pixel[2]/255.0 alpha:pixel[3]/255.0];
+}
+
+
+#pragma mark -- getter
+
+- (CAGradientLayer *)gradientLayer
+{
+    if (!_gradientLayer)
+    {
+        _gradientLayer = [[CAGradientLayer alloc] init];
+        _gradientLayer.frame = self.bounds;
+        _gradientLayer.colors = self.upColors;
+        
+        _gradientLayer.locations = @[@(0), @(0.4), @(0.8)];
+        _gradientLayer.startPoint = CGPointMake(0, 0);
+        _gradientLayer.endPoint = CGPointMake(1, 0);
+        _gradientLayer.type = kCAGradientLayerAxial;
+        [self.layer addSublayer:_gradientLayer];
+    }
+    return _gradientLayer;
 }
 
 @end
